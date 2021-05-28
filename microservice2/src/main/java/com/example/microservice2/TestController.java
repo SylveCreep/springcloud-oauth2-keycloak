@@ -1,4 +1,4 @@
-package com.springcloud.microservice1.microservice1;
+package com.example.microservice2;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -24,6 +24,6 @@ public class TestController {
 
     @GetMapping("/get")
     public Mono<String> get() {
-        return Mono.just("Hello microservice 1");
+        return Mono.just("Hello microservice2");
     }
 }
