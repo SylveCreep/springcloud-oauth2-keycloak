@@ -23,6 +23,9 @@ spring:
             - RewritePath= /microservice2/(?<segment>.*), /$\{segment}
   security:
     oauth2:
+      resource-server: 
+        jwt:
+          issuer-uri: http://localhost:8888/auth/realms/springcloud
       client:
         provider:
           keycloak:
@@ -37,12 +40,12 @@ spring:
             client-secret: b7f6df79-debd-48d7-b891-6a273c26b1d8
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
-          keycloak-without-test-scope:
-            provider: keycloak
-            client-id: spring-without-test-scope
-            client-secret: 626ec4ea-a40f-495d-b2e3-b598787e4561
-            authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+          # keycloak-without-test-scope:
+          #   provider: keycloak
+          #   client-id: spring-without-test-scope
+          #   client-secret: 626ec4ea-a40f-495d-b2e3-b598787e4561
+          #   authorization-grant-type: authorization_code
+          #   redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
 
 server.port: 8060
 
